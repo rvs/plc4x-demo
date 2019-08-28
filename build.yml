@@ -1,0 +1,18 @@
+# linuxkit build template 
+#
+# Copyright (c) 2018 Zededa, Inc.
+# SPDX-License-Identifier: Apache-2.0
+
+org: shaposhnik
+image: plc4x-demo
+network: yes
+config:
+  binds:
+    - /lib/modules:/lib/modules
+    - /dev:/dev
+    - /etc/resolv.conf:/etc/resolv.conf
+    - /run:/run
+  net: host
+  capabilities:
+    - all
+  pid: host
