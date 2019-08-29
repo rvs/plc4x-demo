@@ -1,0 +1,23 @@
+kernel:
+  image: linuxkit/kernel:4.19.51
+  cmdline: "console=tty0 console=ttyS0 console=ttyAMA0"
+init:
+  - linuxkit/init:1a0c6b624708b5a9e58b9a608a9ce3164e7b2908
+  - linuxkit/runc:c1f0db27e71d948f3134b31ce76276f843849b0a
+  - linuxkit/containerd:2e7e59b8af98a1cec834dc9fe7aba271bf4b0a41
+onboot:
+  - name: dhcpcd
+    image: linuxkit/dhcpcd:v0.7
+    command: ["/sbin/dhcpcd", "--nobackground", "-f", "/dhcpcd.conf", "-1"]
+  - name: metadata
+    image: linuxkit/metadata:v0.7
+services:
+  - name: getty
+    image: linuxkit/getty:v0.7
+    env:
+     - INSECURE=true
+  - name: plc4x
+    image: shaposhnik/plc4x-demo:96ff1e3c0ec6142cdd7bbcfd59547629409598a0-amd64
+trust:
+  org:
+    - linuxkit

@@ -1,0 +1,9 @@
+{
+  "plc4x": {
+      "options": {
+        "perm": "0666",
+        "content": "--plc4x-connection-string XXX --plc4x-field-address YYY"
+      }
+    }
+  }
+}
