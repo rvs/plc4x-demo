@@ -11,13 +11,14 @@ onboot:
     command: ["/sbin/dhcpcd", "--nobackground", "-f", "/dhcpcd.conf", "-1"]
   - name: metadata
     image: linuxkit/metadata:v0.7
+    command: ["/usr/bin/metadata", "cdrom"]
 services:
   - name: getty
     image: linuxkit/getty:v0.7
     env:
      - INSECURE=true
   - name: plc4x
-    image: shaposhnik/plc4x-demo:96ff1e3c0ec6142cdd7bbcfd59547629409598a0-amd64
+    image: shaposhnik/plc4x-demo:f0631a29f6dc5c63fdc64d802a522665fac625b3
 trust:
   org:
     - linuxkit
