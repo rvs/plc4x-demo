@@ -15,6 +15,11 @@ RUN unzip /tmp/s.zip ; mv /plc4x-* /ws
 WORKDIR /ws
 RUN ./mvnw -P with-java -DskipTests install
 
+# FIXME: this workaround needs to go away ASAP
+COPY patch /tmp/patch
+RUN patch -p0 < /tmp/patch
+RUN ./mvnw -P with-java -DskipTests install
+
 # Now create an actuall deployment container
 FROM azul/zulu-openjdk-alpine:11-jre
 COPY --from=build /ws/plc4j/examples/hello-storage-elasticsearch/target/*uber-jar.jar /plc4xdemo.jar
