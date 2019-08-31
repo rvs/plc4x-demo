@@ -18,7 +18,7 @@ services:
     env:
      - INSECURE=true
   - name: plc4x
-    image: shaposhnik/plc4x-demo:f0631a29f6dc5c63fdc64d802a522665fac625b3
+    image: shaposhnik/plc4x-demo:d403b2d627506db8a014cc598a1fc69c89efa5ae
 trust:
   org:
     - linuxkit
