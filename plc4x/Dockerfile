@@ -19,4 +19,4 @@ RUN ./mvnw -P with-java -DskipTests install
 FROM azul/zulu-openjdk-alpine:11-jre
 COPY --from=build /ws/plc4j/examples/hello-storage-elasticsearch/target/*uber-jar.jar /plc4xdemo.jar
 
-ENTRYPOINT ["sh", "-c", "java -jar /plc4xdemo.jar `cat /run/config/plc4x/options`"]
+ENTRYPOINT ["sh", "-c", "java -jar /plc4xdemo.jar `cat /run/config/plc4x/options 2>/dev/null`"]
