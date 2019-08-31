@@ -1,8 +1,9 @@
 {
   "plc4x": {
+    "entries": {
       "options": {
         "perm": "0666",
-        "content": "--plc4x-connection-string XXX --plc4x-field-address YYY"
+        "content": "--plc4x-connection-string s7://192.168.1.100/1/1  --plc4x-field-address %I0:BYTE"
       }
     }
   }

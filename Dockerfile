@@ -8,8 +8,8 @@ FROM azul/zulu-openjdk:latest as build
 RUN apt update -y
 RUN apt install -y python-setuptools git unzip
 
-ADD https://github.com/apache/plc4x/archive/d89518a48da18bd5c118f2cd68d01435c55a7480.zip /tmp
-RUN unzip /tmp/d89518a48da18bd5c118f2cd68d01435c55a7480.zip ; mv /plc4x-* /ws
+ADD https://github.com/apache/plc4x/archive/7275c4f1918381c42fc48a8efe69f5beb678804d.zip /tmp/s.zip
+RUN unzip /tmp/s.zip ; mv /plc4x-* /ws
 
 WORKDIR /ws
 COPY *.patch /tmp/
