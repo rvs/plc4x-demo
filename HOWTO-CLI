@@ -1,0 +1,10 @@
+linuxkit build -format raw-bios plc4x.yml
+qemu-img convert -f raw -O qcow2 plc4x-bios.img plc4x-demo
+
+linuxkit run qemu -data-file ./plc4x.json plc4x-bios.img
+
+zcli image create linuxkit-eos --image-format=QCOW2
+zcli image upload linuxkit-eos --path=/linuxkit-eos
+zcli bundle create linuxkit-eos --manifest=/linuxkit-eos-manifest.json
+zcli instance create linuxkit-eos --bundle=linuxkit-eos --device=sc-supermicro-zc4 --title="Experiment with EOS" --adapter-name=networkA:eth1 --adapter-type=1
+zcli instance activate linuxkit-eos

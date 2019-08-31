@@ -1,0 +1,49 @@
+{
+  "acKind": "VMManifest",
+  "acVersion": "1.1.1",
+  "name": "plc4x-demo",
+  "owner": {
+    "user": "testuser",
+    "group": "testgroup"
+  },
+  "eventHandlers": [],
+  "images": [
+    {
+      "imagename": "plc4x-demo",
+      "maxsize": 124977152,
+      "readonly": false,
+      "preserve": true,
+      "target": "Disk",
+      "drvtype": "HDD"
+    }
+  ],
+  "interfaces": [
+    {
+      "name": "networkA",
+      "directattach": false,
+      "privateip": false,
+      "acls": [
+        {
+          "matches": [
+            {
+              "type": "host",
+              "value": ""
+            }
+          ]
+        }
+      ]
+    }
+  ],
+"VmMode" : "HV_HVM",
+"EnableVnc" : true,
+  "resources": [
+    {
+      "name": "cpus",
+      "value": 1
+    },
+    {
+      "name": "memory",
+      "value": 1024000
+    }
+  ]
+}
